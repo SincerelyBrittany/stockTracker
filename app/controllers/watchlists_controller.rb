@@ -15,13 +15,13 @@ class WatchlistsController < ApplicationController
      authenticate
      # binding.pry
      Watchlist.create(name: params[:watchlist][:name], user_id: current_user.id)
-     flash[:message] = "Successfully created song."
+     # flash[:message] = "Successfully created song."
      # redirect("/songs/#{@song.slug}")
      redirect '/watchlists'
 
    end
 
-   get '/watchlists/:slug/edit' do
+   get '/watchlists/:id/edit' do
      @watchlist = Watchlist.find_by(id: params[:id])
      authorize(@watchlist)
      # binding.pry

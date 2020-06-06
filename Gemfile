@@ -1,16 +1,19 @@
-source 'http://rubygems.org'
+source "https://rubygems.org"
 
-gem 'sinatra'
-gem 'activerecord', '~> 4.2', '>= 4.2.6', :require => 'active_record'
-gem 'sinatra-activerecord', :require => 'sinatra/activerecord'
-gem 'rake'
-gem 'require_all'
+gem "sinatra"
+gem "activerecord", '<= 5.1'
+gem "sinatra-activerecord"
+gem "rake"
+gem "bcrypt"
+gem "require_all"
+gem "pry"
 gem 'sqlite3', '~> 1.3.6'
-gem 'thin'
 gem 'shotgun'
-gem 'pry'
-gem 'bcrypt'
-gem 'tux'
+gem 'iex-ruby-client'
+
+group :development do
+  gem "tux"
+end
 
 group :test do
   gem 'rspec'

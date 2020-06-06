@@ -13,24 +13,26 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
-  helpers do
 
-      def current_user
-          User.find_by(id: session[:user_id])
-      end
+    helpers do
 
-      def logged_in?
-          !!current_user
-      end
+        def current_user
+            User.find_by(id: session[:user_id])
+        end
 
-      def authenticate
-          redirect '/login' if !logged_in?
-      end
+        def logged_in?
+            !!current_user
+        end
 
-      def authorize(watchlist)
-          authenticate
-          redirect '/watchlists' if watchlist.user != current_user
-      end
+        def authenticate
+            redirect '/login' if !logged_in?
+        end
+
+        def authorize(watchlist)
+            authenticate
+            redirect '/watchlists' if watchlist.user != current_user
+        end
+
+    end
 
   end
-end
