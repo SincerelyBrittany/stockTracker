@@ -1,0 +1,15 @@
+<a href="stocks/new"> Create a new stock </a>
+<% if @stocks == nil %>
+<p> Have no stock yet </p>
+<% else %>
+<% @stocks.each do |stock| %>
+ <div> <h3><%= stock.name %><h3>
+   <a href="/stocks/<%= stock.id %>/edit"> Edit your <%= stock.name %>  stock </a> <br/>
+   <a href="/stocks/<%= stock.id %>"> View your <%= stock.name %> stock </a>
+   </div>
+<%end%>
+<%end%>
+
+<form action="/logout" method="GET">
+ <button type="submit" value="submit">Logout</button>
+</form>
