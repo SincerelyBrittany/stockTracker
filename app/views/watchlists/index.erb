@@ -1,0 +1,15 @@
+<a href="watchlists/new"> Create a new watchlist </a>
+<% if @watchlists == nil %>
+<p> Have no watchlist yet </p>
+<% else %>
+<% @watchlists.each do |watchlist| %>
+ <div> <h3><%= watchlist.name %><h3>
+   <a href="/watchlists/<%= watchlist.id %>/edit"> Edit your <%= watchlist.name %>  watchlist </a> <br/>
+   <a href="/watchlists/<%= watchlist.id %>"> View your <%= watchlist.name %> watchlist </a>
+   </div>
+<%end%>
+<%end%>
+
+<form action="/logout" method="GET">
+ <button type="submit" value="submit">Logout</button>
+</form>

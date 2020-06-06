@@ -1,0 +1,18 @@
+
+<h1> Update Watchlist</h1>
+
+<h2>Edits for <%= @watchlist.name %></h2>
+
+  <form action="/watchlists/<%= @watchlist.id %>" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="patch">
+    <label>Edit the Watchlist's Name:</label>
+    <input type="text" name="watchlist[name]" id= "watchlist_name" value="<%= @watchlist.name %>">
+
+    <input type="submit" value="Update Watchlist">
+  </form>
+
+
+  <form method="POST" action="/watchlists/<%= @watchlist.id %>">
+    <input type="hidden" name="_method" value="delete" />
+    <input type="submit" value="delete"/>
+  </form>
