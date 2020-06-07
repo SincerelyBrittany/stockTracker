@@ -5,8 +5,9 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 use Rack::MethodOverride
-use CompanyController
+use StockController
 use UsersController
 use WatchlistsController
+# use WatchlistStockController
 use SessionsController
 run ApplicationController

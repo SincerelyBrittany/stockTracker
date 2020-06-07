@@ -16,7 +16,8 @@ ActiveRecord::Schema.define(version: 20200606234431) do
   create_table "stocks", force: :cascade do |t|
     t.string   "ticker"
     t.string   "name"
-    t.string   "exchange"
+    t.string   "description"
+    t.string   "ceo"
     t.string   "logo"
     t.integer  "price"
     t.datetime "created_at"
