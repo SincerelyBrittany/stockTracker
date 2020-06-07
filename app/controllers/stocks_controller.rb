@@ -1,30 +1,45 @@
 class StockController < ApplicationController
 
-  get '/stocks' do #works
-     authenticate
-     binding.pry
-     # @stocks = current_user.stocks
-     erb :'stocks/index'
-   end
+  # get '/stocks' do
+  #    authenticate
+  #    # @stock = current_user.stocks
+  #    @watchlists = current_user.watchlists
+  #    erb :'/stocks/index'
+  #  end
 
-   get '/stocks/new' do #works
+   get '/stocks/new' do
      authenticate
      erb :'/stocks/new'
    end
 
+  post '/stocks/new' do
+     authenticate
+     binding.pry
+     erb :'/stocks/new'
+   end
+
+
    post '/stocks' do
      authenticate
+     @watchlists = current_user.watchlists
      searched_ticker = params[:stock][:name]
      @info = APImanager.get_quote(searched_ticker)[0]
-     Stock.new(name: @info[:name],
+     @stocks = Stock.new(name: @info[:name],
               ticker: @info[:ticker],
               price: @info[:price],
               logo: @info[:logo],
               ceo: @info[:ceo],
               description: @info[:description]
               )
-     redirect '/stocks'
+        # binding.pry
+      # if @stock.save
+      #   @watchlists << @stock
+      # else
+      #
+      # end
+      # binding.pry
 
+     erb :'/stocks/index'
    end
    #
    # get '/stocks/:id/edit' do
