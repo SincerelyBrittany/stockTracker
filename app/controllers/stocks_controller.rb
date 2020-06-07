@@ -2,7 +2,7 @@ class StockController < ApplicationController
 
   get '/stocks' do #works
      authenticate
-     APImanager.get_quote
+     binding.pry
      # @stocks = current_user.stocks
      erb :'stocks/index'
    end
@@ -12,15 +12,20 @@ class StockController < ApplicationController
      erb :'/stocks/new'
    end
 
-   # post '/stocks' do
-   #   authenticate
-   #   # binding.pry
-   #   Stock.create(name: params[:stock][:name], user_id: current_user.id)
-   #   # flash[:message] = "Successfully created song."
-   #   # redirect("/songs/#{@song.slug}")
-   #   redirect '/stocks'
-   #
-   # end
+   post '/stocks' do
+     authenticate
+     searched_ticker = params[:stock][:name]
+     @info = APImanager.get_quote(searched_ticker)[0]
+     Stock.new(name: @info[:name],
+              ticker: @info[:ticker],
+              price: @info[:price],
+              logo: @info[:logo],
+              ceo: @info[:ceo],
+              description: @info[:description]
+              )
+     redirect '/stocks'
+
+   end
    #
    # get '/stocks/:id/edit' do
    #   @stock = Stock.find_by(id: params[:id])

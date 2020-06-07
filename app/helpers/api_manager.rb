@@ -2,13 +2,40 @@ require './config/environment'
 
 class APImanager
 
- def self.get_quote
+ def self.get_quote(searched_ticker)
    client = IEX::Api::Client.new(
      publishable_token: "#{ENV['PUBLISHABLE_TOKEN_ID']}",
      secret_token: "#{ENV['SECRET_TOKEN_ID']}",
      endpoint: 'https://cloud.iexapis.com/v1')
+     # info.new([ticker: client.company("#{searched_ticker}").symbol],
+     # [price: client.quote("#{searched_ticker}").latest_price])
 
-     binding.pry
+        @array = [
+        ticker: client.company("#{searched_ticker}").symbol,
+        price: client.quote("#{searched_ticker}").latest_price,
+        name: client.company("#{searched_ticker}").company_name,
+        description: client.company("#{searched_ticker}").description,
+        logo: client.logo("#{searched_ticker}").url,
+        ceo: client.company("#{searched_ticker}").ceo
+        ]
+
+        # binding.pry
+
+
+
+     # @ticker = client.company("#{searched_ticker}").symbol,
+     # @price = client.quote("#{searched_ticker}").latest_price,
+     # @name = client.company("#{searched_ticker}").company_name,
+     # @description = client.company("#{searched_ticker}").description,
+     # @logo = client.logo("#{searched_ticker}").url,
+     # @ceo = client.company("#{searched_ticker}").ceo]
+     # binding.pry
+     # t.string :ticker
+     # t.string :name
+     # t.string :exchange
+     # t.string :logo
+     # t.integer :price
+
      #@current_quote = client.quote('MSFT').latest_price
      # quote = client.quote('MSFT')
       # quote.latest_price # 90.165
