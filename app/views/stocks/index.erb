@@ -1,14 +1,26 @@
 <a href="stocks/new"> Create a new stock </a>
-<% if @stocks == nil %>
-<p> Have no stock yet </p>
-<% else %>
-<% @stocks.each do |stock| %>
- <div> <h3><%= stock.name %><h3>
-   <a href="/stocks/<%= stock.id %>/edit"> Edit your <%= stock.name %>  stock </a> <br/>
-   <a href="/stocks/<%= stock.id %>"> View your <%= stock.name %> stock </a>
-   </div>
-<%end%>
-<%end%>
+<h1> Name : <%= @stocks.name %></h1> <br>
+<h2> Price: <%= @stocks.price %></h2> <br>
+<p> Logo:  <img src="<%= @stocks.logo %>" alt="<%= @stocks.name %>"> </p><br>
+<p>  CEO:  <%= @stocks.ceo %> </p><br>
+<p> Description:  <%= @stocks.description %> <p></p><br>
+<form action="/watchlists" method="POST">
+
+      <input type="hidden" id="title_<%=@stocks.id%>" name="watchlist[stock][id]" value="<%= @stocks.id %>"><br>
+      <input type="hidden" id="title_<%= @stocks.name%>" name="watchlist[stock][name]" value="<%= @stocks.name %>"><br>
+      <input type="hidden" id="title_<%=@stocks.price%>" name="watchlist[stock][price]" value="<%= @stocks.price %>"><br>
+      <input type="hidden" id="title_<%=@stocks.logo%>" name="watchlist[stock][logo]" value="<%= @stocks.logo %>"><br>
+      <input type="hidden" id="title_<%=@stocks.ceo%>" name="watchlist[stock][ceo]" value="<%= @stocks.ceo %>"><br>
+      <input type="hidden" id="title_<%=@stocks.description %>" name="watchlist[stock][description]" value="<%= @stocks.description %>"><br>
+
+  <% @watchlists.each do |watchlist| %>
+      <label><%= watchlist.name %></label>
+      <input type="checkbox" id="title_<%=watchlist.id%>" name="watchlist[id]" value="<%= watchlist.id %>"><br>
+      <input type="hidden" id="title_<%=watchlist.name%>" name="watchlist[name]" value="<%= watchlist.name %>">
+    <% end %>
+
+  <input type="submit" value="Add Stock" >
+</form>
 
 <form action="/logout" method="GET">
  <button type="submit" value="submit">Logout</button>
