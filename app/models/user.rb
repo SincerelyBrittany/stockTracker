@@ -1,4 +1,4 @@
-class User < ActiveRecord::Base
+class User < ActiveRecord::Base #figures
 
 has_secure_password
 has_many :watchlists
