@@ -3,3 +3,8 @@
 <h1><%= @watchlist.name %></h1>
 
 <a href="/watchlists"> View all watchlist </a>
+<a href="/stocks/new"> Add new stock to watchlist
+<form action="/stocks/new" method="post">
+<input type="hidden" name="watchlist_id" value="<%= @watchlist.id %>">
+</form>
+ </a>
