@@ -7,4 +7,21 @@
 <form action="/stocks/new" method="post">
 <input type="hidden" name="watchlist_id" value="<%= @watchlist.id %>">
 </form>
+
+<a href="/watchlists/<%= @watchlist.id %>/edit"> Edit your <%= @watchlist.name %>  watchlist name </a> <br/>
  </a>
+
+
+ <% @stocks.each do |stock| %>
+  <% if stock.name != nil %>
+   <h3> Name: <%= stock.name %><h3>
+     <form method="POST" action="/stocks/<%= stock.id %>">
+       <input type="hidden" name="_method" value="delete" />
+       <input type="submit" value="delete"/>
+     </form>
+    <ul> <li><%=  stock.ticker %><li>
+        <li>  <%=  stock.price %><li>
+         <li>  <%=  stock.description %><li>
+    </ul>
+     <%end%>
+ <%end%>
