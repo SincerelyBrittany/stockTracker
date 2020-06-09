@@ -23,18 +23,13 @@ class WatchlistsController < ApplicationController
         redirect "/watchlists/new"
       end
    else
-     # binding.pry #NEED A FOR EACH STATEMENT FOR THE WATCHLIST IDS
-     @stock = Stock.new(name: params[:watchlist][:stock][:name], price: params[:watchlist][:stock][:price],
+     @stock = Stock.create(name: params[:watchlist][:stock][:name], price: params[:watchlist][:stock][:price],
      logo: params[:watchlist][:stock][:logo], ceo: params[:watchlist][:stock][:ceo],
      description: params[:watchlist][:stock][:description], ticker: params[:watchlist][:stock][:ticker])
-      # binding.pry
-     #@watchlist = Watchlist.find(params[:watchlist][:id])
      @watchlists = Watchlist.find(params[:watchlist][:id])
      @watchlists.each do |watchlist|
         watchlist.stocks << @stock
       end
-       # binding.pry
-     # @watchlist.stocks << @stock
      redirect '/watchlists'
    end
  end
@@ -57,9 +52,7 @@ class WatchlistsController < ApplicationController
 
    get '/watchlists/:id' do
      authenticate
-     # binding.pry
      @watchlist = Watchlist.find_by(id: params[:id])
-     # binding.pry
      @stocks = @watchlist.stocks
      erb :'/watchlists/show'
    end
