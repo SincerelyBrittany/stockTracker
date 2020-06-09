@@ -8,7 +8,18 @@
   </head>
   <body>
     <div class="wrapper">
-        <%= yield %>
+      <nav>
+        <% if current_user == nil %>
+        <a href="/login"> LOGIN </a>
+        <a href="/signup"> SIGN UP </a>
+        <% else %>
+        <h1> Welcome
+        <%= current_user.username %> </h1>
+          <%= yield %>
+        <a href="/watchlists"> See your watchlist </a>
+        <a href="/logout"> Logout </a>
+        <% end %>
+       </nav>
       <footer class="branding">
         <small>&copy; 2020 <strong>StockTracker</strong></small>
       </footer>
