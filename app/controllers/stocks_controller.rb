@@ -5,10 +5,11 @@ class StockController < ApplicationController
      erb :'/stocks/new'
    end
 
-  # post '/stocks/new' do
-  #    authenticate
-  #    erb :'/stocks/new'
-  #  end
+  post '/stocks/new' do
+     authenticate
+     @current_user_watchlist_id = params[:watchlist_id]
+     erb :'/stocks/new'
+   end
 
    post '/stocks' do
      authenticate
@@ -57,7 +58,8 @@ class StockController < ApplicationController
    end
 
    delete '/stocks/:id' do
-     @watchlist_id = Stock.find_by(id: params[:id]).watchlists.ids[0]
+     watchlist_id = Stock.find_by(id: params[:id]).watchlists.ids[0]
+     @watchlist_id = watchlist_id.to_s
      @stock = Stock.find_by(id: params[:id])
      # authorize(@stock)
      @stock.destroy
