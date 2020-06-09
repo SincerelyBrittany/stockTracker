@@ -4,6 +4,7 @@
 <p> Logo:  <img src="<%= @stocks.logo %>" alt="<%= @stocks.name %>"> </p><br>
 <p>  CEO:  <%= @stocks.ceo %> </p><br>
 <p> Description:  <%= @stocks.description %> <p></p><br>
+
 <form action="/watchlists" method="POST">
 
       <input type="hidden" id="title_<%=@stocks.id%>" name="watchlist[stock][id]" value="<%= @stocks.id %>"><br>
@@ -14,11 +15,12 @@
       <input type="hidden" id="title_<%=@stocks.ceo%>" name="watchlist[stock][ceo]" value="<%= @stocks.ceo %>"><br>
       <input type="hidden" id="title_<%=@stocks.description %>" name="watchlist[stock][description]" value="<%= @stocks.description %>"><br>
 
-  <% @watchlists.each do |watchlist| %>
-      <label><%= watchlist.name %></label>
-      <input type="checkbox" id="title_<%=watchlist.id%>" name="watchlist[id]" value="<%= watchlist.id %>"><br>
-      <input type="hidden" id="title_<%=watchlist.name%>" name="watchlist[name]" value="<%= watchlist.name %>">
-    <% end %>
+
+      <% @watchlists.each do |watchlist| %>
+          <label><%= watchlist.name %></label>
+          <input type="checkbox" id="title_<%=watchlist.id%>" name="watchlist[id][]" value="<%= watchlist.id %>"><br>
+          <input type="hidden" id="title_<%=watchlist.name%>" name="watchlist[name]" value="<%= watchlist.name %>">
+        <% end %>
 
   <input type="submit" value="Add Stock" >
 </form>
