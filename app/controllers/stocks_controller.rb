@@ -16,11 +16,11 @@ class StockController < ApplicationController
      authenticate
      @watchlists = current_user.watchlists
      searched_ticker = params[:stock][:name]
-     begin
+     # begin
        @info = APImanager.get_quote(searched_ticker)[0]
-     rescue
-       raise NoStockError.new
-     end
+     # rescue
+     #   raise NoStockError.new
+     # end
      # if @info.nil?
      #   redirect '/watchlists'
      # end
