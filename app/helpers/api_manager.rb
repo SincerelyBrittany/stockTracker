@@ -9,19 +9,27 @@ class APImanager
      endpoint: 'https://cloud.iexapis.com/v1')
      # info.new([ticker: client.company("#{searched_ticker}").symbol],
      # [price: client.quote("#{searched_ticker}").latest_price])
+     begin
+       @array = [
+       ticker: client.company("#{searched_ticker}").symbol,
+       price: client.quote("#{searched_ticker}").latest_price,
+       name: client.company("#{searched_ticker}").company_name,
+       description: client.company("#{searched_ticker}").description,
+       logo: client.logo("#{searched_ticker}").url,
+       ceo: client.company("#{searched_ticker}").ceo
 
-        @array = [
-        ticker: client.company("#{searched_ticker}").symbol,
-        price: client.quote("#{searched_ticker}").latest_price,
-        name: client.company("#{searched_ticker}").company_name,
-        description: client.company("#{searched_ticker}").description,
-        logo: client.logo("#{searched_ticker}").url,
-        ceo: client.company("#{searched_ticker}").ceo
-        ]
+       ]
+     rescue
+       return [nil]
+     end
+
+     # rescue
+     #   raise NoStockError.new
+     # end
+
+
 
         # binding.pry
-
-
 
      # @ticker = client.company("#{searched_ticker}").symbol,
      # @price = client.quote("#{searched_ticker}").latest_price,
