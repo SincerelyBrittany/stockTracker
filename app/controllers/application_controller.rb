@@ -8,6 +8,7 @@ class ApplicationController < Sinatra::Base
     enable :sessions
     register Sinatra::Flash
     set :session_secret, ENV['SESSION_PASSWORD']
+    #set :show_exceptions, false
   end
 
   get "/" do
@@ -35,5 +36,7 @@ class ApplicationController < Sinatra::Base
         end
 
     end
-
+    # error NoStockError do
+    #   erb :error, status: 404
+    # end
   end

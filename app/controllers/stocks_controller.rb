@@ -12,10 +12,18 @@ class StockController < ApplicationController
    end
 
    post '/stocks' do
+
      authenticate
      @watchlists = current_user.watchlists
      searched_ticker = params[:stock][:name]
-     @info = APImanager.get_quote(searched_ticker)[0]
+     # begin
+       @info = APImanager.get_quote(searched_ticker)[0]
+     # rescue
+       # raise NoStockError.new
+     # end
+     if @info.nil?
+       redirect '/watchlists'
+     end
      @stocks = Stock.new(name: @info[:name],
               ticker: @info[:ticker],
               price: @info[:price],
@@ -23,6 +31,7 @@ class StockController < ApplicationController
               ceo: @info[:ceo],
               description: @info[:description]
               )
+
         # binding.pry
       # if @stock.save
       #   @watchlists << @stock
