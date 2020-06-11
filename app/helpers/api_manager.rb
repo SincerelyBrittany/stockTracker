@@ -9,7 +9,7 @@ class APImanager
      endpoint: 'https://cloud.iexapis.com/v1')
      # info.new([ticker: client.company("#{searched_ticker}").symbol],
      # [price: client.quote("#{searched_ticker}").latest_price])
-     binding.pry
+
      begin
        @array = [
        ticker: client.company("#{searched_ticker}").symbol,
