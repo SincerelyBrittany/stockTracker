@@ -23,3 +23,4 @@ group :test do
 end
 
 gem "sinatra-flash", "~> 0.3.0"
+gem 'sanitize'
