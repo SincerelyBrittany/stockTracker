@@ -36,7 +36,9 @@ class ApplicationController < Sinatra::Base
         end
 
     end
-    # error NoStockError do
-    #   erb :error, status: 404
-    # end
+    error NoStockError do
+      # binding.pry
+      @error = "Invalid Credentials"
+      erb :'stocks/new', status: 404
+    end
   end
