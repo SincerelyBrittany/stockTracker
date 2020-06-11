@@ -1,3 +1,4 @@
+require 'sanitize'
 class WatchlistsController < ApplicationController
 
   get '/watchlists' do
@@ -14,9 +15,11 @@ class WatchlistsController < ApplicationController
    post '/watchlists' do
      authenticate
     if params[:watchlist][:stock] == nil
-     @watchlist = current_user.watchlists.build(name: params[:watchlist][:name], user_id: params[:user_id])
+     #@watchlist = current_user.watchlists.build(name: params[:watchlist][:name], user_id: params[:user_id])
+     @watchlist = current_user.watchlists.build(name: Sanitize.fragment(params[:watchlist][:name]), user_id: params[:user_id])
+     # binding.pry
       if @watchlist.save
-        flash[:message] = "You have successfully created an order."
+        flash[:message] = "You have successfully created a watchlists."
       redirect "/watchlists"
     else
         flash[:error] = @watchlist.errors.full_messages
@@ -27,6 +30,7 @@ class WatchlistsController < ApplicationController
      logo: params[:watchlist][:stock][:logo], ceo: params[:watchlist][:stock][:ceo],
      description: params[:watchlist][:stock][:description], ticker: params[:watchlist][:stock][:ticker])
      @watchlists = Watchlist.find(params[:watchlist][:id])
+     #If @watchlists.length == 1 then reroute to the watchlists/#id else do the followinf
      @watchlists.each do |watchlist|
         watchlist.stocks << @stock
       end
@@ -35,12 +39,14 @@ class WatchlistsController < ApplicationController
  end
 
    get '/watchlists/:id/edit' do
+     authenticate
      @watchlist = Watchlist.find_by(id: params[:id])
      authorize(@watchlist)
      erb :'/watchlists/edit'
    end
 
    patch '/watchlists/:id' do
+     authenticate
      @watchlist = Watchlist.find_by(id: params[:id])
      authorize(@watchlist)
      if @watchlist.update(name: params[:watchlist][:name])
@@ -58,6 +64,7 @@ class WatchlistsController < ApplicationController
    end
 
    delete '/watchlists/:id' do
+     authenticate
      @watchlist = Watchlist.find_by(id: params[:id])
      authorize(@watchlist)
      @watchlist.destroy
