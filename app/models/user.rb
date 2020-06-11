@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base #figures
 
 has_secure_password
-has_many :watchlists
+has_many :watchlists, dependent: :destroy
 has_many :stocks, through: :watchlist
 validates :username, uniqueness: true
 validates :username, presence: true
