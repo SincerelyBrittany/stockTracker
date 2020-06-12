@@ -1,15 +1,24 @@
-<a href="watchlists/new"> Create a new watchlist </a>
-<% if @watchlists == nil %>
+<h1 class="byline2" id="byline2"> The Stock Watchlist</h1>
+<h2> Your Watchlists: </h2>
+  <h3><a href="watchlists/new"> Create a new watchlist </a></h3>
+<% if @watchlists == [] || @watchlists == nil  %>
 <p> Have no watchlist yet </p>
-<% else %>
+ <%end%>
 <% @watchlists.each do |watchlist| %>
- <div> <h3><%= watchlist.name %><h3>
-   <a href="/watchlists/<%= watchlist.id %>"> View your <%= watchlist.name %> watchlist </a>
-   </div>
-<%end%>
-<%end%>
-
-
-<form action="/logout" method="GET">
- <button type="submit" value="submit">Logout</button>
-</form>
+<div class="container center">
+  <div class="row">
+    <div class="col-3">
+      <p> <%= watchlist.name %> </p>
+    </div>
+    <div class="col-6">
+      <a class="btn btn-info" href="/watchlists/<%= watchlist.id %>" role="button">View your <%= watchlist.name %> watchlist</a>
+    </div>
+    <div class="col-3">
+      <form method="POST" action="/watchlists/<%= watchlist.id %>">
+        <input type="hidden" name="_method" value="delete" />
+        <input type="submit" class="btn btn-danger" value="delete"/>
+      </form>
+    </div>
+  </div>
+  </div>
+<% end %>

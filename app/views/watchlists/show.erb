@@ -1,41 +1,24 @@
- <!-- <a href="watchlists/new"> Create a new watchlist </a> -->
+<div class="container">
+    <h2 class="byline2" id="byline2"> The Stock Watchlist</h2>
 
-<h1><%= @watchlist.name %></h1>
-
-<a href="/watchlists"> View all watchlist </a>
-<!-- <a href="/stocks/new"> Add new stock to watchlist -->
-<form action="/stocks/new" method="post">
-<input type="hidden" name="watchlist_id" value="<%= @watchlist.id %>">
-<input type="submit" value="Add stock"/>
-</form>
-<!-- </a> -->
-
-<a href="/watchlists/<%= @watchlist.id %>/edit"> Edit your <%= @watchlist.name %>  watchlist name </a> <br/>
-
-
-
- <% @stocks.each do |stock| %>
-  <% if stock.name != nil %>
-   <h3> Name: <%= stock.name %><h3>
-     <form method="POST" action="/stocks/<%= stock.id %>">
-       <input type="hidden" name="_method" value="delete" />
-       <input type="submit" value="delete"/>
-     </form>
-    <ul> <li><%=  stock.ticker %><li>
-        <li>  <%=  stock.price %><li>
-         <li>  <%=  stock.description %><li>
-    </ul>
-     <%end%>
- <%end%>
-
-
-
-
- <table style="width:50%">
+  <div class="row">
+    <div class="col">
+       <h3>Watchlist <%=  @watchlist.name %></h3>
+      <a href="/watchlists/<%=  @watchlist.id %>/edit"> Edit <%=  @watchlist.name %> edit </a>
+  </div>
+</div>
+<br>
+<div>
+<% if @stocks == [] || @stocks == nil %>
+  <p> No stocks </p>
+<% else %>
+ <table style="width:75%" class="center">
   <tr>
-    <th>Name</th>
-    <th>Ticker</th>
+    <th>CEO</th>
+    <th>NAME</th>
+    <th>TICKER</th>
     <th>Price</th>
+    <th>    </th>
   </tr>
    <% @stocks.each do |stock| %>
   <tr>
@@ -44,7 +27,24 @@
     <td><%=  stock.name %></td>
     <td><%=  stock.ticker %></td>
     <td><%=  stock.price %></td>
-    <td><%=  stock.ceo %></td>
+    <td> <form method="POST" action="/stocks/<%= stock.id %>">
+       <input type="hidden" name="_method" value="delete" />
+       <input type="submit" class="btn btn-danger" value="delete"/>
+     </form> </td>
   </tr>
    <%end%>
 </table>
+
+<% end %>
+</div>
+
+<div class="center">
+<form action="/stocks/new" method="post" >
+<input type="hidden" name="watchlist_id" value="<%= @watchlist.id %>">
+<!-- <input type="submit" value="Add stock"/> -->
+ <button type="submit" class="btn btn-primary">Add Stock</button>
+</form>
+<br>
+<br>
+<a href="/watchlists"> View all watchlist </a> <br>
+<div>
