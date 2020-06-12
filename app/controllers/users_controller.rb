@@ -21,11 +21,11 @@ class UsersController < ApplicationController
 
 
   post '/signup' do
-      @u = User.new(:username => params[:username],
+      @u = User.new(:username => params[:username].gsub(/[\<\>\/]/, ""),
                           :password => params[:password],
-                          :email => params[:email],
-                          :location => params[:location],
-                          :age => params[:age])
+                          :email => params[:email].gsub(/[\<\>\/]/, ""),
+                          :location => params[:location].gsub(/[\<\>\/]/, ""),
+                          :age => params[:age].gsub(/[\<\>\/]/, ""))
       if @u.save
           #successful signup
           session[:user_id] = @u.id
