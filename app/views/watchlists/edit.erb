@@ -1,17 +1,24 @@
 
-<h1> Update Watchlist</h1>
+<h1 class="byline2" id="byline2"> The Stock Watchlist</h1>
 
-<h2>Edits for <%= @watchlist.name %></h2>
+<h2>Update <%= @watchlist.name %></h2>
 
-  <form action="/watchlists/<%= @watchlist.id %>" method="POST">
-    <input id="hidden" type="hidden" name="_method" value="patch">
-    <label>Edit the Watchlist's Name:</label>
-    <input type="text" name="watchlist[name]" id= "watchlist_name" value="<%= @watchlist.name %>">
-    <input type="submit" value="Update Watchlist">
-  </form>
-
-
-  <form method="POST" action="/watchlists/<%= @watchlist.id %>">
-    <input type="hidden" name="_method" value="delete" />
-    <input type="submit" value="delete"/>
-  </form>
+    <div class="container center2">
+      <div class="row">
+        <div class="col">
+            <form action="/watchlists/<%= @watchlist.id %>" method="POST">
+              <input id="hidden" type="hidden" name="_method" value="patch">
+              <input type="text" name="watchlist[name]" id= "watchlist_name" value="<%= @watchlist.name %>">
+              </div>
+              <div class="col">
+              <input type="submit" class="btn btn-primary" value="Update Watchlist">
+              </div>
+            </form>
+        <div class="col">
+          <form method="POST" action="/watchlists/<%= @watchlist.id %>">
+            <input type="hidden" name="_method" value="delete" />
+            <input type="submit" class="btn btn-danger" value="delete"/>
+          </form>
+        </div>
+      </div>
+      </div>

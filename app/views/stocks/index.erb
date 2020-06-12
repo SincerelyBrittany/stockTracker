@@ -1,9 +1,83 @@
-<a href="stocks/new"> Create a new stock </a>
-<h1> Name : <%= @stocks.name %></h1> <br>
-<h2> Price: <%= @stocks.price %></h2> <br>
+<h1 class="byline2" id="byline2"> The Stock Watchlist</h1>
+
+  <img src="<%= @stocks.logo %>" class="center" alt="<%= @stocks.name %> >
+<div class="container">
+
+  <div class="row">
+    <div class="col">
+      One of three columns
+    </div>
+    <div class="col">
+
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col">
+      One of three columns
+    </div>
+    <div class="col">
+      <h4> Name : </h4>
+    </div>
+    <div class="col">
+      <u><%= @stocks.name %></u>
+    </div>
+    <div class="col">
+      One of three columns
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+
+    </div>
+    <div class="col">
+      <h4> Price: </h4>
+    </div>
+    <div class="col">
+      <u> <%= @stocks.price %> </u>
+    </div>
+    <div class="col">
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      One of three columns
+    </div>
+    <div class="col">
+      <h4> CEO : </h4>
+    </div>
+    <div class="col">
+      <u><%= @stocks.ceo %> </u>
+    </div>
+    <div class="col">
+      One of three columns
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col">
+      <h4> Description: </h4>
+    </div>
+    <div class="col-6">
+      <u><%= @stocks.description %> </u>
+    </div>
+
+  </div>
+
+
+</div>
+
+
+
+
+
 <p> Logo:  <img src="<%= @stocks.logo %>" alt="<%= @stocks.name %>"> </p><br>
-<p>  CEO:  <%= @stocks.ceo %> </p><br>
-<p> Description:  <%= @stocks.description %> <p></p><br>
+
 
 <form action="/watchlists" method="POST">
 
@@ -15,16 +89,15 @@
       <input type="hidden" id="title_<%=@stocks.ceo%>" name="watchlist[stock][ceo]" value="<%= @stocks.ceo %>"><br>
       <input type="hidden" id="title_<%=@stocks.description %>" name="watchlist[stock][description]" value="<%= @stocks.description %>"><br>
 
-
       <% @watchlists.each do |watchlist| %>
           <label><%= watchlist.name %></label>
           <input type="checkbox" id="title_<%=watchlist.id%>" name="watchlist[id][]" value="<%= watchlist.id %>"><br>
           <input type="hidden" id="title_<%=watchlist.name%>" name="watchlist[name]" value="<%= watchlist.name %>">
         <% end %>
 
-  <input type="submit" value="Add Stock" >
+    <button type="submit" class="btn btn-primary">Add Stock</button>
+
+  <!-- <input type="submit" class="btn btn-info" value="Add Stock" > -->
 </form>
 
-<form action="/logout" method="GET">
- <button type="submit" value="submit">Logout</button>
-</form>
+<a href="stocks/new"> Search for a different Stock </a>

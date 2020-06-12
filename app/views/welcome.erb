@@ -1,8 +1,16 @@
-<div class="container">
-    <h2>Stock Watchlist</h2>
-
-    <div class="content">
 
 
+<div class="stock_watchlists">
+    <h2 class="byline" id="byline"> The Stock Watchlist</h2>
   </div>
-</div>
+
+  <% if current_user != nil %>
+  <h1> Welcome
+  <%= current_user.username %>! </h1>
+  <% end %>
+
+  <h3> <% if current_user != nil %>
+  <a href="/watchlists">View your Watchlist Here</a>
+    <% else %>
+    <h2>Please Login in or Sign up</h2>
+  <% end %> </h3>
