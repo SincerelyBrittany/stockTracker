@@ -1,86 +1,18 @@
 <h1 class="byline2" id="byline2"> The Stock Watchlist</h1>
 
-  <img src="<%= @stocks.logo %>" class="center" alt="<%= @stocks.name %> >
-<div class="container">
-
-  <div class="row">
-    <div class="col">
-      One of three columns
-    </div>
-    <div class="col">
-
-    </div>
-
+<div class="card center" style="width: 18rem;">
+  <img src="<%= @stocks.logo %>" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"><%= @stocks.name %></h5>
+    <p class="card-text">Description: <%= @stocks.description %></p>
   </div>
-
-  <div class="row">
-    <div class="col">
-      One of three columns
-    </div>
-    <div class="col">
-      <h4> Name : </h4>
-    </div>
-    <div class="col">
-      <u><%= @stocks.name %></u>
-    </div>
-    <div class="col">
-      One of three columns
-    </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item"><p> CEO: <%= @stocks.ceo %> </p></li>
+    <li class="list-group-item"><p> PRICE: <%= @stocks.price %></p></li>
+    <li class="list-group-item"><p> Ticker: <%= @stocks.ticker %></li>
+  </ul>
   </div>
-
-  <div class="row">
-    <div class="col">
-
-    </div>
-    <div class="col">
-      <h4> Price: </h4>
-    </div>
-    <div class="col">
-      <u> <%= @stocks.price %> </u>
-    </div>
-    <div class="col">
-
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col">
-      One of three columns
-    </div>
-    <div class="col">
-      <h4> CEO : </h4>
-    </div>
-    <div class="col">
-      <u><%= @stocks.ceo %> </u>
-    </div>
-    <div class="col">
-      One of three columns
-    </div>
-  </div>
-
-  <div class="row">
-
-    <div class="col">
-      <h4> Description: </h4>
-    </div>
-    <div class="col-6">
-      <u><%= @stocks.description %> </u>
-    </div>
-
-  </div>
-
-
-</div>
-
-
-
-
-
-<p> Logo:  <img src="<%= @stocks.logo %>" alt="<%= @stocks.name %>"> </p><br>
-
-
-<form action="/watchlists" method="POST">
-
+<form action="/watchlists" class="center2" method="POST">
       <input type="hidden" id="title_<%=@stocks.id%>" name="watchlist[stock][id]" value="<%= @stocks.id %>"><br>
       <input type="hidden" id="title_<%= @stocks.name%>" name="watchlist[stock][name]" value="<%= @stocks.name %>"><br>
       <input type="hidden" id="title_<%=@stocks.price%>" name="watchlist[stock][price]" value="<%= @stocks.price %>"><br>
@@ -94,10 +26,8 @@
           <input type="checkbox" id="title_<%=watchlist.id%>" name="watchlist[id][]" value="<%= watchlist.id %>"><br>
           <input type="hidden" id="title_<%=watchlist.name%>" name="watchlist[name]" value="<%= watchlist.name %>">
         <% end %>
-
     <button type="submit" class="btn btn-primary">Add Stock</button>
-
-  <!-- <input type="submit" class="btn btn-info" value="Add Stock" > -->
 </form>
 
-<a href="stocks/new"> Search for a different Stock </a>
+
+<a href="stocks/new" class="center2"> Search for a different Stock </a>
