@@ -1,11 +1,5 @@
 class UsersController < ApplicationController
 
-  get '/users/:slug' do
-    user = User.find_by_slug(params[:slug])
-    @playlists = user.playlists
-    erb :'users/show'
-  end
-
   post '/login' do
       u = User.find_by(username: params[:username])
       if u && u.authenticate(params[:password])
