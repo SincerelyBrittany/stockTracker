@@ -1,4 +1,4 @@
 class NoStockError < StandardError
-  
+
 
 end
