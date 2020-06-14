@@ -9,7 +9,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/SincerelyBrittany/stockTracker">
-    <img src="readme_media/logo.png" alt="Logo" width="150" height="80">
+    <img src="readme_media/logo.png" alt="Logo" width="200" height="80">
   </a>
 
   <h3 align="center">The Stock Watchlist</h3>
@@ -144,7 +144,8 @@ Twitter: [@SincerelyBrittt](https://twitter.com/SincerelyBrittt)
 [Email Me](sincerelybr@gmail.com)
 <br>
 Connect with me on [LinkedIn](https://www.linkedin.com/in/sincerelybrittany/)
-[![Linkedin][linkedin-shield]][license-url]
+[![Linkedin][linkedin-shield]][linkedin-url]
+[![Twitter][twitter-shield]][linkedin-url]
 <br>
 Follow me on [Dev.to](https://dev.to/sincerelybrittany)
 
@@ -168,4 +169,6 @@ Follow me on [Dev.to](https://dev.to/sincerelybrittany)
 [license-url]: https://github.com/SincerelyBrittany/stockTracker/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/sincerelybrittany/
+[twitter-shield]:https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FSincerelyBrittt
+[twitter-url]: https://twitter.com/SincerelyBrittt
 [product-screenshot]: readme_media/main_page.png
