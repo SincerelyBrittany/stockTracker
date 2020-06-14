@@ -142,7 +142,7 @@ Connect/Follow me:
 
 [![Linkedin][linkedin-shield]][linkedin-url]
 [![Twitter][twitter-shield]][linkedin-url]
-[![Dev.to][dev.to-url]]
+[![Dev.to][dev.to-shield]][dev.to-url]
 
 
 <!-- ACKNOWLEDGEMENTS -->
@@ -167,5 +167,6 @@ Connect/Follow me:
 [linkedin-url]: https://www.linkedin.com/in/sincerelybrittany/
 [twitter-shield]:https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FSincerelyBrittt
 [twitter-url]: https://twitter.com/SincerelyBrittt
+[dev.to-shield]:https://cdn3.iconfinder.com/data/icons/logos-and-brands-adobe/512/84_Dev-512.png
 [dev.to-url]: https://dev.to/sincerelybrittany
 [product-screenshot]: readme_media/main_page.png
