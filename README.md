@@ -9,7 +9,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/SincerelyBrittany/stockTracker">
-    <img src="readme_media/logo.png" alt="Logo" width="80" height="80">
+    <img src="readme_media/logo.png" alt="Logo" width="150" height="80">
   </a>
 
   <h3 align="center">The Stock Watchlist</h3>
@@ -156,7 +156,7 @@ Follow me on [Dev.to](https://dev.to/sincerelybrittany)
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/oSincerelyBrittany/stockTracker.svg?style=flat-square
+[contributors-shield]: https://img.shields.io/github/contributors/SincerelyBrittany/stockTracker.svg?style=flat-square
 [contributors-url]: https://github.com/SincerelyBrittany/stockTracker/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/SincerelyBrittany/stockTracker.svg?style=flat-square
 [forks-url]: https://github.com/SincerelyBrittany/stockTracker/network/members
