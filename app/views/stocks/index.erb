@@ -13,6 +13,7 @@
   </ul>
   </div>
 <form action="/watchlists" class="center2" method="POST">
+      <p> Pick the Watchlists that you want to add <%= @stocks.name %> to:</p>
       <input type="hidden" id="title_<%=@stocks.id%>" name="watchlist[stock][id]" value="<%= @stocks.id %>"><br>
       <input type="hidden" id="title_<%= @stocks.name%>" name="watchlist[stock][name]" value="<%= @stocks.name %>"><br>
       <input type="hidden" id="title_<%=@stocks.price%>" name="watchlist[stock][price]" value="<%= @stocks.price %>"><br>
