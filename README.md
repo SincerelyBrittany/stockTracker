@@ -8,8 +8,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/SincerelyBrittany/stockTracker">
+    <img src="readme_media/logo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">The Stock Watchlist</h3>
@@ -19,9 +19,9 @@
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Report Bug</a>
+    <a href="https://github.com/SincerelyBrittany/stockTracker/issues">Report Bug</a>
     ·
-    <a href="https://github.com/othneildrew/Best-README-Template/issues">Request Feature</a>
+    <a href="https://github.com/SincerelyBrittany/stockTracker/issues">Request Feature</a>
   </p>
 </p>
 
@@ -41,8 +41,6 @@
 * [License](#license)
 * [Contact](#contact)
 * [Acknowledgements](#acknowledgements)
-
-
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
@@ -75,18 +73,23 @@ and then go to your favorite browser and visit this webpage "http://localhost:93
 
 ### Prerequisites
 
-This is an example of how to list things you need to use the software and how to install them.
-* bundle install
+Before running shotgun, you will need to install the gems and add content to your database manually or you can use the seeds file:
+
+To install the gems run the following:
+
 ```sh
 bundle install
 ```
 
-```sh
-rake console
-```
+To run your migrations and update your db/schema.rb file to match the structure of the database, run the following:
 
 ```sh
 rake db:migrate
+```
+
+To create data in the database, run the following:
+```sh
+rake db:seed
 ```
 
 ### Installation
@@ -95,13 +98,13 @@ rake db:migrate
 
 2. Clone the repo
 ```sh
-git clone https://github.com/your_username_/Project-Name.git
+git clone https://github.com/SincerelyBrittany/stockTracker.git
 ```
 3. Install the gemfile packages
 ```sh
 bundle install
 ```
-4. Created a secrets.rb file and enter your API KEYS:
+4. Created a secrets.rb file, add the file to your gitignore, and enter your API KEYS:
 ```JS
   ENV['SECRET_TOKEN_ID'] = "KEY_HERE"
   ENV['PUBLISHABLE_TOKEN_ID'] = "KEY_HERE"
@@ -110,14 +113,12 @@ bundle install
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-
+<a href="https://github.com/othneildrew/Best-README-Template">View Demo</a> on ways to use the application.
 
 <!-- ROADMAP -->
 ## Roadmap
 
 See the [open issues](https://github.com/SincerelyBrittany/stockTracker/issues) for a list of proposed features (and known issues).
-
-
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -135,8 +136,6 @@ Contributions are what make the open source community such an amazing place to b
 
 Distributed under the MIT License. See `LICENSE` for more information.
 
-
-
 <!-- CONTACT -->
 ## Contact
 
@@ -145,6 +144,7 @@ Twitter: [@SincerelyBrittt](https://twitter.com/SincerelyBrittt)
 [Email Me](sincerelybr@gmail.com)
 <br>
 Connect with me on [LinkedIn](https://www.linkedin.com/in/sincerelybrittany/)
+[![Linkedin][linkedin-shield]][license-url]
 <br>
 Follow me on [Dev.to](https://dev.to/sincerelybrittany)
 
@@ -152,8 +152,6 @@ Follow me on [Dev.to](https://dev.to/sincerelybrittany)
 ## Acknowledgements
 * [Micah Github](https://github.com/micahshute)
 * [Flatiron School](https://flatironschool.com/)
-
-
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
@@ -170,4 +168,4 @@ Follow me on [Dev.to](https://dev.to/sincerelybrittany)
 [license-url]: https://github.com/SincerelyBrittany/stockTracker/blob/master/LICENSE
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
 [linkedin-url]: https://www.linkedin.com/in/sincerelybrittany/
-[product-screenshot]: images/screenshot.png
+[product-screenshot]: readme_media/main_page.png
