@@ -8,9 +8,8 @@
 <br>
 <div class="center2">
 <form action="/stocks" method="POST" >
-
   <input type="text" name="stock[name]" id="stock_name" placeholder="Type the Stock Ticker:">
-  <!-- <input type="submit" value="Search for Stock"> -->
+  <input type="hidden" name="watchlist_id" value="<%=@current_id%>">
    <button type="submit" class="btn btn-primary">Search for Stock</button>
 </form>
 </div>
