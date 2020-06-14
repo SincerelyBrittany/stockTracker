@@ -138,16 +138,12 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 <!-- CONTACT -->
 ## Contact
+Connect/Follow me:
 
-Twitter: [@SincerelyBrittt](https://twitter.com/SincerelyBrittt)
-<br>
-[Email Me](sincerelybr@gmail.com)
-<br>
-Connect with me on [LinkedIn](https://www.linkedin.com/in/sincerelybrittany/)
 [![Linkedin][linkedin-shield]][linkedin-url]
 [![Twitter][twitter-shield]][linkedin-url]
-<br>
-Follow me on [Dev.to](https://dev.to/sincerelybrittany)
+[![Dev.to][twitter-shield]][dev.to-url]
+
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
@@ -171,4 +167,5 @@ Follow me on [Dev.to](https://dev.to/sincerelybrittany)
 [linkedin-url]: https://www.linkedin.com/in/sincerelybrittany/
 [twitter-shield]:https://img.shields.io/twitter/url?style=social&url=https%3A%2F%2Ftwitter.com%2FSincerelyBrittt
 [twitter-url]: https://twitter.com/SincerelyBrittt
+[dev.to-url]: https://twitter.com/SincerelyBrittt
 [product-screenshot]: readme_media/main_page.png
