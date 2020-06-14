@@ -29,12 +29,10 @@ class WatchlistsController < ApplicationController
      @stock = Stock.create(name: params[:watchlist][:stock][:name], price: params[:watchlist][:stock][:price],
      logo: params[:watchlist][:stock][:logo], ceo: params[:watchlist][:stock][:ceo],
      description: params[:watchlist][:stock][:description], ticker: params[:watchlist][:stock][:ticker])
-     @watchlists = Watchlist.find(params[:watchlist][:id])
-     #If @watchlists.length == 1 then reroute to the watchlists/#id else do the followinf
-     @watchlists.each do |watchlist|
-        watchlist.stocks << @stock
-      end
-     redirect '/watchlists'
+     @watchlist = Watchlist.find(params[:watchlist][:id][0])
+     @watchlist.stocks << @stock
+
+     redirect "/watchlists/#{@watchlist.id}"
    end
  end
 
