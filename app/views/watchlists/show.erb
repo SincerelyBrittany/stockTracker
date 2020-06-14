@@ -39,9 +39,8 @@
 </div>
 
 <div class="center">
-<form action="/stocks/new" method="post" >
+<form action="/stocks/new" method="get" >
 <input type="hidden" name="watchlist_id" value="<%= @watchlist.id %>">
-<!-- <input type="submit" value="Add stock"/> -->
  <button type="submit" class="btn btn-primary">Add Stock</button>
 </form>
 <br>
