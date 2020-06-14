@@ -2,19 +2,13 @@ class StockController < ApplicationController
 
    get '/stocks/new' do
      authenticate
-     erb :'/stocks/new'
-   end
-
-  post '/stocks/new' do
-     authenticate
-     @current_user_watchlist_id = params[:watchlist_id]
+     @current_id = params[:watchlist_id]
      erb :'/stocks/new'
    end
 
    post '/stocks' do
-
      authenticate
-     @watchlists = current_user.watchlists
+     @current_id = current_user.watchlists.find_by(id: params[:watchlist_id])
      searched_ticker = params[:stock][:name]
      # begin
        @info = APImanager.get_quote(searched_ticker)[0]
@@ -31,14 +25,6 @@ class StockController < ApplicationController
               ceo: @info[:ceo],
               description: @info[:description]
               )
-
-        # binding.pry
-      # if @stock.save
-      #   @watchlists << @stock
-      # else
-      #
-      # end
-      # binding.pry
 
      erb :'/stocks/index'
    end
