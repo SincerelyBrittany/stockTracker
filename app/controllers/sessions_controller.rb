@@ -27,7 +27,8 @@ class SessionsController < ApplicationController
                           :password => params[:password],
                           :email => params[:email],
                           :location => params[:location],
-                          :age => params[:age])
+                          :age => params[:age],
+                          :password => params[:password])
       if @u.save
           #successful signup
           session[:user_id] = @u.id
