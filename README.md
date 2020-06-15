@@ -9,7 +9,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/SincerelyBrittany/stockTracker">
-    <img src="readme_media/logo.png" alt="Logo" width="300" height="80">
+    <img src="public/readme_media/logo.png" alt="Logo" width="300" height="80">
   </a>
 
   <h3 align="center">The Stock Watchlist</h3>
@@ -169,4 +169,4 @@ Connect/Follow me:
 [twitter-url]: https://twitter.com/SincerelyBrittt
 [dev-to-url]: https://dev.to/sincerelybrittany
 [dev-to-shield]:https://img.shields.io/badge/-Dev.to-black.svg?style=flat-square&logo=dev.to&colorB=555
-[product-screenshot]: readme_media/main_page.png
+[product-screenshot]: public/readme_media/main_page.png
