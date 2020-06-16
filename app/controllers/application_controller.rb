@@ -15,8 +15,7 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
-
-    helpers do
+    self.helpers do
 
         def current_user
             User.find_by(id: session[:user_id]) #the session user id gives me a valid user based off some id
