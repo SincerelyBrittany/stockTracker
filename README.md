@@ -17,7 +17,7 @@
   <p align="center">
     An awesome Sinatra application that allows you to add stocks to your personalized watchlist!
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="https://www.youtube.com/watch?v=lTFuoIIYX5E">View Demo</a>
     ·
     <a href="https://github.com/SincerelyBrittany/stockTracker/issues">Report Bug</a>
     ·
@@ -113,7 +113,7 @@ bundle install
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-<a href="https://github.com/othneildrew/Best-README-Template">View Demo</a> on ways to use the application.
+<a href="https://www.youtube.com/watch?v=lTFuoIIYX5E">View Demo</a> on ways to use the application.
 
 <!-- ROADMAP -->
 ## Roadmap
