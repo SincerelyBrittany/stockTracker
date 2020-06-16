@@ -15,30 +15,39 @@ class ApplicationController < Sinatra::Base
     erb :welcome
   end
 
-    self.helpers do
+    helpers do
 
-        def current_user
-            User.find_by(id: session[:user_id]) #the session user id gives me a valid user based off some id
-        end
+    def current_user
+       User.find_by(id: session[:user_id])
+     end
 
+     def logged_in?
+       !!current_user
+     end
 
-        def logged_in?
-            !!current_user
-        end
+     def authenticate
+       redirect '/login' if !logged_in?
+     end
 
-        def authenticate
-            redirect '/login' if !logged_in?
-        end
+     def authorize_user(user)
+       authenticate
+       redirect '/watchlists' if user != current_user
+     end
 
-        def authorize(watchlist)
-            authenticate
-            redirect '/watchlists' if watchlist.user != current_user
-        end
+     def authorize(watchlist)
+        authenticate
+        redirect '/watchlists' if watchlist.user != current_user
+     end
+
+     def sanitize(params)
+        Sanitize.fragment(params)
+     end
 
     end
     error NoStockError do
-      # binding.pry
       @error = "Invalid Credentials"
+      @stock = params[:stock][:name]
+      @watchlist_id = params[:watchlist_id]
       erb :'stocks/new', status: 404
     end
   end
