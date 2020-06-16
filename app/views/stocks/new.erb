@@ -2,7 +2,8 @@
 <h3>Search for a New Stock to add to your Watchlists</h3>
 
 <% if @error %>
-<p style="color: red;"> Stock not found </p>
+<% @current_id = @watchlist_id %>
+<p style="color: red;"> <%= @stock %> not found </p>
 <% end %>
 <br>
 <br>
