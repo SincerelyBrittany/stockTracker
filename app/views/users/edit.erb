@@ -1,0 +1,32 @@
+<h2>Update Your Account</h2>
+
+<% if @u && @u.errors.any? %>
+<ul>
+  <% @u.errors.full_messages.each do |error|%>
+    <li><%= error %></li>
+  <% end %>
+  </ul>
+
+<% end %>
+
+
+<form action="/users/<%= @u.id %>" method="POST">
+  <input type="hidden" name="_method" value="PATCH">
+
+  <label for="username"> Username: </label>
+  <input type="text" name="username" id="username" placeholder="<%= @u.username %>"><br>
+
+  <label for="email"> email: </label>
+  <input type="text" name="email" id="email" placeholder="<%= @u.email %>"><br>
+
+  <label for="location"> location: </label>
+  <input type="text" name="location" id="location" placeholder="<%= @u.location %>"><br>
+
+  <label for="age"> age: </label>
+  <input type="text" name="age" id="age" placeholder="<%= @u.age %>"><br>
+
+  <label for="password"> password: </label>
+  <input type="password" name="password" id="password" placeholder="Update password"><br>
+
+  <input class="button" type="submit" value="Update">
+</form>
