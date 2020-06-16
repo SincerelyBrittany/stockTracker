@@ -21,6 +21,7 @@ class ApplicationController < Sinatra::Base
             User.find_by(id: session[:user_id]) #the session user id gives me a valid user based off some id
         end
 
+
         def logged_in?
             !!current_user
         end
