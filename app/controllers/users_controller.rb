@@ -1,34 +1,26 @@
 class UsersController < ApplicationController
 
-  post '/login' do
-      u = User.find_by(username: params[:username])
-      if u && u.authenticate(params[:password])
-          #successful
-          session[:user_id] = u.id
-          redirect '/watchlists'
-      else
-          #unsuccessful
-          @err = "Invalid Credentials"
-          erb :'sessions/login'
-      end
+  get '/users/:id/edit' do
+    @u = User.find_by(id: params[:id])
+    authorize_user(@u)
+    erb :'/users/edit'
   end
 
+  patch '/users/:id' do
+    @u = User.find_by(id: params[:id])
+    authorize_user(@u)
+    @u.update(username: sanitize(params[:username]),
+      email: sanitize(params[:email]),
+      location: sanitize(params[:location]),
+      age: sanitize(params[:age]),
+      password: params[:password]
+      )
+    if @u.save
+      redirect '/watchlists'
+    else
+      erb :"/users/edit"
+    end
 
-  post '/signup' do
-      @u = User.new(:username => params[:username].gsub(/[\<\>\/]/, ""),
-                          :password => params[:password],
-                          :email => params[:email].gsub(/[\<\>\/]/, ""),
-                          :location => params[:location].gsub(/[\<\>\/]/, ""),
-                          :age => params[:age].gsub(/[\<\>\/]/, ""))
-      if @u.save
-          #successful signup
-          session[:user_id] = @u.id
-          redirect "/watchlists"
-      else
-          #unsuccessful signup
-          erb :'sessions/signup'
-      end
   end
-
 
 end
