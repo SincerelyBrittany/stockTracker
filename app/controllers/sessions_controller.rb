@@ -1,47 +1,50 @@
 class SessionsController < ApplicationController
 
   get '/signup' do
+      redirect '/watchlists' if logged_in?
+      erb :'/sessions/signup'
+  end
+
+  post '/signup' do
+    redirect '/watchlists' if logged_in?
+    @u = User.new(email: sanitize(params[:email]),
+      username: sanitize(params[:username]),
+      :location => sanitize(params[:location]),
+      :age => sanitize(params[:age]),
+      password: sanitize(params[:password])
+    )
+
+    if @u.save
+      session[:user_id] = @u.id
+      # Pony.mail :to => params[:email],
+      #     :from => 'me@example.com',
+      #     :subject => 'Thank you for signing up'
+      redirect '/watchlists'
+    else
       erb :'sessions/signup'
+    end
   end
 
   get '/login' do
-      erb :'sessions/login'
+    redirect '/watchlists' if logged_in?
+    erb :'/sessions/login'
   end
 
   post '/login' do
-      u = User.find_by(username: params[:username])
-      if u && u.authenticate(params[:password])
-          #successful
-          session[:user_id] = u.id
-          redirect '/watchlists'
-      else
-          #unsuccessful
-          @err = "Invalid Credentials"
-          erb :'sessions/login'
-      end
-  end
-
-
-  post '/signup' do
-      @u = User.new(:username => params[:username],
-                          :password => params[:password],
-                          :email => params[:email],
-                          :location => params[:location],
-                          :age => params[:age],
-                          :password => params[:password])
-      if @u.save
-          #successful signup
-          session[:user_id] = @u.id
-          redirect "/watchlists"
-      else
-          #unsuccessful signup
-          erb :'sessions/signup'
-      end
+    redirect '/watchlists' if logged_in?
+    u = User.find_by(username: params[:username])
+    if user && user.authenticate(params[:password])
+      session[:user_id] = user.id
+      redirect "/watchlists"
+    else
+      @err = "Your credentials are incorrect. Please try again"
+      erb  :'sessions/login'
+    end
   end
 
   get '/logout' do
-      session.clear
-      redirect '/login'
+    session.clear
+    redirect '/'
   end
 
 end
