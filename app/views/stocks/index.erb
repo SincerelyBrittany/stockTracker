@@ -23,12 +23,18 @@
       <input type="hidden" id="title_<%=@stocks.description %>" name="watchlist[stock][description]" value="<%= @stocks.description %>"><br>
 
 
-          <label><%= @current_id.name %></label>
-          <input type="checkbox" id="title_<%=@current_id.id%>" name="watchlist[id][]" value="<%= @current_id.id %>"><br>
-          <input type="hidden" id="title_<%=@current_id.name%>" name="watchlist[name]" value="<%= @current_id.name %>">
+          <label><%= @watchlist.name %></label>
+          <input type="checkbox" id="title_<%=@watchlist.id%>" name="watchlist[id][]" value="<%= @watchlist.id %>"><br>
+          <input type="hidden" id="title_<%=@watchlist.name%>" name="watchlist[name]" value="<%= @watchlist.name %>">
 
     <button type="submit" class="btn btn-primary">Add Stock</button>
 </form>
 
 
-<a href="stocks/new" class="center2"> Search for a different Stock </a>
+
+<form action="/stocks/new" class="center2" method="GET">
+      <p>Search for a different Stock</p>
+      <input type="hidden" id="title_<%= @watchlist.id %>" name="watchlist_id" value="<%= @watchlist.id %>"><br>
+    <button type="submit" class="btn btn-primary">Search for a different Stock</button>
+</form>
+<!-- <a href="/stocks/new" class="center2"> Search for a different Stock </a> -->
