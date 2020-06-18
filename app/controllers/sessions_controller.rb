@@ -13,12 +13,11 @@ class SessionsController < ApplicationController
       :age => sanitize(params[:age]),
       password: sanitize(params[:password])
     )
+    #   binding.pry
+    # @u = User.new(sanitize_hash(params))
 
     if @u.save
       session[:user_id] = @u.id
-      # Pony.mail :to => params[:email],
-      #     :from => 'me@example.com',
-      #     :subject => 'Thank you for signing up'
       redirect '/watchlists'
     else
       erb :'sessions/signup'
@@ -32,9 +31,10 @@ class SessionsController < ApplicationController
 
   post '/login' do
     redirect '/watchlists' if logged_in?
+    # binding.pry
     u = User.find_by(username: params[:username])
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
+    if u && u.authenticate(params[:password])
+      session[:user_id] = u.id
       redirect "/watchlists"
     else
       @err = "Your credentials are incorrect. Please try again"
