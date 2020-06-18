@@ -13,7 +13,6 @@ class WatchlistsController < ApplicationController
    end
 
    get '/watchlists/:id' do
-     authenticate
      @watchlist = Watchlist.find_by(id: params[:id])
      authorize(@watchlist)
      @stocks = @watchlist.stocks
@@ -23,12 +22,11 @@ class WatchlistsController < ApplicationController
    post '/watchlists' do
      authenticate
     if params[:watchlist][:stock] == nil
-      @watchlist = current_user.watchlists.build(name: Sanitize.fragment(params[:watchlist][:name]), user_id: params[:user_id])
+      @watchlist = current_user.watchlists.new(name: Sanitize.fragment(params[:watchlist][:name]), user_id: params[:user_id])
+      # binding.pry
       if @watchlist.save
-        flash[:message] = "You have successfully created a watchlists."
       redirect "/watchlists"
-    else
-        flash[:error] = @watchlist.errors.full_messages
+      else
         redirect "/watchlists/new"
       end
    else
@@ -43,15 +41,12 @@ class WatchlistsController < ApplicationController
  end
 
    get '/watchlists/:id/edit' do
-     authenticate
      @watchlist = Watchlist.find_by(id: params[:id])
      authorize(@watchlist)
      erb :'/watchlists/edit'
    end
 
    patch '/watchlists/:id' do
-     authenticate
-     binding.pry
      @watchlist = Watchlist.find_by(id: params[:id])
      authorize(@watchlist)
      if @watchlist.update(name: params[:watchlist][:name])
@@ -62,7 +57,6 @@ class WatchlistsController < ApplicationController
    end
 
    delete '/watchlists/:id' do
-     authenticate
      @watchlist = Watchlist.find_by(id: params[:id])
      authorize(@watchlist)
      @watchlist.destroy
