@@ -1,6 +1,6 @@
 users_list = [
-  [ "JohnSmith", "j.smith@aol.com", "NY", "25" , "123"],
-  [ "KarenSnow", "k.snow@yahoo.com", "CA", "30", "123"],
+  [ "a", "j.smith@aol.com", "NY", "25" , "a123"],
+  [ "b", "k.snow@yahoo.com", "CA", "30", "b123"],
   [ "RogerRabbit","rr@roadrunner.com", "FL", "40", "123"],
   [ "BugsBunny", "bugs.bunny@gmail.com", "TX", "100", "123"]
 ]
