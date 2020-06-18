@@ -43,6 +43,12 @@ class ApplicationController < Sinatra::Base
         Sanitize.fragment(params)
      end
 
+     def sanitize_hash(h)
+       hash = {}
+       h.each {|key, value| hash[key] = sanitize(value)}
+       hash
+     end
+
     end
     error NoStockError do
       @error = "Invalid Credentials"
