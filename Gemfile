@@ -1,5 +1,6 @@
 source "https://rubygems.org"
 
+ruby '2.6.3'
 gem "sinatra"
 gem "activerecord"
 gem "sinatra-activerecord"
@@ -12,6 +13,7 @@ gem 'thin'
 gem 'iex-ruby-client'
 gem "sinatra-flash"
 gem 'sanitize'
+gem 'rake'
 
 group :production do
   gem 'pg'
