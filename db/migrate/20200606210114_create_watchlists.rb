@@ -1,4 +1,4 @@
-class CreateWatchlists < ActiveRecord::Migration
+class CreateWatchlists < ActiveRecord::Migration[4.2]
   def change
     create_table :watchlists do |t|
       t.string :name
