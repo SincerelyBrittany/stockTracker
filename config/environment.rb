@@ -1,8 +1,8 @@
 ENV['SINATRA_ENV'] ||= "development"
 
-if ENV['SINATRA_ENV'] == "development"
-  require_relative "../secrets"
-end
+# if ENV['SINATRA_ENV'] == "development"
+#   require_relative "../secrets"
+# end
 
 require 'bundler/setup'
 Bundler.require(:default, ENV['SINATRA_ENV'])
